@@ -1,0 +1,33 @@
+#!/bin/bash
+# Useful bash functions. This is sourced by the environment file.
+# These are available to scripts, but you shouldn't use them in scripts if you
+# want them to be portable.
+
+# Usage: pathprepend /path/to/bin [PATH]
+# Eg, to prepend ~/bin to $PATH
+#     pathprepend ~/bin PATH
+function pathprepend {
+  [ -d "${1}" ] || return
+  export PATH=${1}:${PATH}
+}
+
+# Usage: pathappend /path/to/bin [PATH]
+# Eg, to append ~/bin to $PATH
+#     pathappend ~/bin PATH
+function pathappend {
+  [ -d "${1}" ] || return
+  export PATH=${PATH}:${1}
+}
+
+# Usage: ssource /path/to/shellscript
+# Checks if the file exists before sourcing it
+function ssource {
+  [ -r "${1}" ] && source "${1}"
+}
+
+# Usage: mcd somedir
+# Creates the directory if it doesn't exist, and changes into it
+function mcd {
+  mkdir -p "${1}" &&
+  cd "${1}"
+}

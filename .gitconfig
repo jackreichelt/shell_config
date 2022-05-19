@@ -1,0 +1,36 @@
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+	ui = true
+
+[alias]
+  b = branch
+  st = status
+  co = checkout
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+  pushu = !git push -u origin `git symbolic-ref --short HEAD`
+  undo = reset --soft HEAD^
+
+[merge]
+	tool = opendiff
+
+[push]
+  default = current
+
+[diff]
+  algorithm = patience
+
+[core]
+	excludesfile = /home/ubuntu/.gitignore_global
+	editor = nano
+
+[user]
+	name = Jack Reichelt
+	email = jackreichelt@gmail.com
+
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = true
